@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Company Name</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .hero {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #2c3e50;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #3498db;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .member-img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .member-name {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .member-role {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .member-bio {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f1f2f6;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .department-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: #f1f2f6;
+            border: none;
+            border-radius: 30px;
+            color: #2c3e50;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Company Name</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#" class="active">Our Team</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Meet Our Team</h1>
+            <p>We're a diverse group of passionate individuals working together to create amazing solutions.</p>
+        </div>
+    </section>
+    
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>The People Behind Our Success</h2>
+                <p>Our team brings together expertise from various backgrounds to deliver exceptional results for our clients.</p>
+            </div>
+            
+            <div class="department-filter">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Leadership</button>
+                <button class="filter-btn">Development</button>
+                <button class="filter-btn">Design</button>
+                <button class="filter-btn">Marketing</button>
+                <button class="filter-btn">Support</button>
+            </div>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <img src="/Users/ashutosh/Desktop/Programming/ThirdAI/Sample webpage/img/Dhanraj_Pondicherry.jpg" alt="Dhanraj Pondicherry" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">Dhanraj Pondicherry</h3>
+                        <p class="member-role">CEO</p>
+                        <!-- <p class="member-bio">Sarah has over 15 years of experience in the industry and leads our company vision.</p> -->
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in">in</i></a>
+                            <a href="#"><i class="fab fa-twitter">t</i></a>
+                            <a href="#"><i class="fab fa-github">g</i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <img src="/Users/ashutosh/Desktop/Programming/ThirdAI/Sample webpage/img/anshumali.png" alt="Anshumali Shrivastava" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">Anshumali Shrivastava</h3>
+                        <p class="member-role">Founder</p>
+                        <!-- <p class="member-bio">Michael oversees all technical aspects and ensures we stay at the cutting edge.</p> -->
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in">in</i></a>
+                            <a href="#"><i class="fab fa-twitter">t</i></a>
+                            <a href="#"><i class="fab fa-github">g</i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <img src="/Users/ashutosh/Desktop/Programming/ThirdAI/Sample webpage/img/Tharun.png" alt="Tharun Medini" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">Tharun Medini</h3>
+                        <p class="member-role">CTO & Co-founder</p>
+                        <!-- <p class="member-bio">Emily brings creativity and user-centric thinking to all our projects.</p> -->
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in">in</i></a>
+                            <a href="#"><i class="fab fa-dribbble">d</i></a>
+                            <a href="#"><i class="fab fa-behance">b</i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-member">
+                    <img src="/Users/ashutosh/Desktop/Programming/ThirdAI/Sample webpage/img/sidjain.jpg" alt="Siddharth Jain" class="member-img">
+                    <div class="member-info">
+                        <h3 class="member-name">Siddharth Jain</h3>
+                        <p class="member-role">Principal Lead Engineer</p>
+                        <!-- <p class="member-bio">David specializes in backend systems and database architecture.</p> -->
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in">in</i></a>
+                            <a href="#"><i class="fab fa-github">g</i></a>
+                            <a href="#"><i class="fab fa-stack-overflow">s</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <p class="copyright">© 2025 Company Name. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
