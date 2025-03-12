@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme Corp. Announces Revolutionary New Platform | Press Release</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .breadcrumb {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: "→";
+            margin: 0 10px;
+            color: #bdc3c7;
+        }
+        
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .press-header {
+            background-color: #3498db;
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .press-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        
+        .press-date {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .press-date svg {
+            margin-right: 5px;
+        }
+        
+        .press-category {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .press-title {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .press-subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 800px;
+        }
+        
+        .press-content-wrapper {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: -50px;
+            margin-bottom: 60px;
+            overflow: hidden;
+        }
+        
+        .press-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .press-content {
+            padding: 40px;
+        }
+        
+        .press-content p {
+            margin-bottom: 25px;
+            font-size: 17px;
+            color: #555;
+        }
+        
+        .press-content h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin: 40px 0 20px;
+        }
+        
+        .press-content h3 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin: 30px 0 15px;
+        }
+        
+        .press-content ul, .press-content ol {
+            margin-bottom: 25px;
+            margin-left: 20px;
+        }
+        
+        .press-content li {
+            margin-bottom: 10px;
+        }
+        
+        .press-content blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .contact-info {
+            background-color: #f1f9ff;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .contact-info h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        
+        .press-quote {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .quote-text {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .quote-text::before, .quote-text::after {
+            content: "";
+            font-family: Georgia, serif;
+            font-size: 60px;
+            position: absolute;
+            color: #e1e1e1;
+        }
+        
+        .quote-text::before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .quote-text::after {
+            bottom: -40px;
+            right: -10px;
+            content: """;
+        }
+        
+        .quote-author {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .quote-position {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .share-section {
+            display: flex;
+            align-items: center;
+            padding: 30px 0;
+            border-top: 1px solid #e9ecef;
+            margin-top: 40px;
+        }
+        
+        .share-title {
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        .share-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .share-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f1f2f6;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .share-link:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .related-releases {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .related-title {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .related-release {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .related-release:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .related-content {
+            padding: 20px;
+        }
+        
+        .related-date {
+            color: #3498db;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .related-release-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .related-release-title a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .related-release-title a:hover {
+            color: #3498db;
+        }
+        
+        .press-contact {
+            background-color: #2c3e50;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .press-contact h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .press-contact p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #bdc3c7;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 992px) {
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .press-title {
+                font-size: 32px;
+            }
+            
+            .press-image {
+                height: 300px;
+            }
+            
+            .press-content {
+                padding: 30px;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .press-title {
+                font-size: 28px;
+            }
+            
+            .press-subtitle {
+                font-size: 18px;
+            }
+            
+            .press-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Acme Corp.</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#" class="active">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Press</a></li>
+                <li>Acme Corp. Announces $8 Million in Series A funding</li>
+            </ul>
+        </div>
+    </div>
+    
+    <section class="press-header">
+        <div class="container">
+            <div class="press-meta">
+                <div class="press-date">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    February 10, 2024
+                </div>
+                <div class="press-category">Funding</div>
+            </div>
+            <h1 class="press-title">Acme Corp. Announces $8 Million in Series A Funding</h1>
+            <p class="press-subtitle">Sequoia China & Wuxi AppTech invest $8 Million in Acme</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="press-content-wrapper">
+            <div class="press-content">
+                <p><strong>HOUSTON, TX - February 10, 2024</strong> - Acme Corp., a cutting-edge technology company revolutionizing cloud computing, today announced that it has raised $8 million in Series A funding in a round co-led by Sequoia China and Wuxi AppTec.</p>
+
+                <p>
+
+                    Founded by Anshumali Shrivastava and Tharun Medini, Acme Corp. is at the forefront of enterprise cloud solutions, etc., providing innovative solutions to address the evolving challenges of the digital world. The new funding will be used to scale product development, expand the engineering team, and enhance market penetration across key regions.
+                </p>
+                <p>
+
+                    "This investment validates our vision and the groundbreaking work we’re doing to reshape the technology landscape," said Anshumali Shrivastava, Co-founder and CEO of Acme Corp. "With the backing of Sequoia China and Wuxi AppTec, we are well-positioned to accelerate our growth and bring our solutions to a global audience."
+                </p>
+
+                <p>
+                    "We believe Acme Corp. has the potential to be a game-changer in the tech space," said Sequoia China. "Their innovative approach to clouds is exactly what the industry needs, and we’re excited to support their journey."
+
+                </p>
+                <p>
+                    Acme Corp. is poised to transform industry with its cutting-edge service, helping businesses and consumers navigate an increasingly digital world.
+
+                </p>
+
+
+
+<!-- 
+About Acme Corp.
+Acme Corp. is a [San Francisco/Beijing/New York]-based technology company focused on [AI, cybersecurity, cloud computing, etc.]. Founded by Anshumali Shrivastava and Tharun Medini, the company is committed to building [next-generation solutions] that drive efficiency, security, and innovation in the digital era
+                 -->
+            
+                
+               
+                <div class="share-section">
+                    <span class="share-title">Share this release:</span>
+                    <div class="share-links">
+                        <a href="#" class="share-link">T</a>
+                        <a href="#" class="share-link">in</a>
+                        <a href="#" class="share-link">f</a>
+                        <a href="#" class="share-link">e</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="related-releases">
+        <div class="container">
+            <h2 class="related-title">Related Press Releases</h2>
+            <div class="related-grid">
+                <div class="related-release">
+                    <div class="related-content">
+                        <span class="related-date">February 28, 2025</span>
+                        <h3 class="related-release-title"><a href="#">Acme Corp. Secures $50 Million in Series C Funding</a></h3>
+                    </div>
+                </div>
+                
+                <div class="related-release">
+                    <div class="related-content">
+                        <span class="related-date">January 15, 2025</span>
+                        <h3 class="related-release-title"><a href="#">Acme Corp. Releases Version 3.0 of Its Flagship Software</a></h3>
+                    </div>
+                </div>
+                
+                <div class="related-release">
+                    <div class="related-content">
+                        <span class="related-date">December 20, 2024</span>
+                        <h3 class="related-release-title"><a href="#">Acme Corp. Opens New Headquarters in Austin, Texas</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="press-contact">
+        <div class="container">
+            <h3>Media Contact</h3>
+            <p>For more information, interview requests, or additional materials, please contact our media relations team.</p>
+            <a href="#" class="contact-btn">Contact Press Team</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <p class="copyright">© 2025 Acme Corp.. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
